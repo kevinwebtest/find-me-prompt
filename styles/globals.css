@@ -28,7 +28,7 @@
   top: 0;
 }
 
-.main:after {
+/* .main:after {
   content: "";
   background-image: url("/assets/images/grid.svg");
   z-index: 1;
@@ -36,33 +36,34 @@
   width: 100%;
   height: 100%;
   top: 0;
-  opacity: 0.4;
+  opacity: 1;
   filter: invert(1);
-}
+} */
 
 .gradient {
   height: fit-content;
   z-index: 3;
-  width: 100%;
-  max-width: 640px;
+  /* max-width: 640px; */
   background-image: radial-gradient(
       at 27% 37%,
-      hsla(215, 98%, 61%, 1) 0px,
+      rgb(0, 0, 0) 0px,
       transparent 0%
     ),
     radial-gradient(at 97% 21%, hsla(125, 98%, 72%, 1) 0px, transparent 50%),
     radial-gradient(at 52% 99%, hsla(354, 98%, 61%, 1) 0px, transparent 50%),
-    radial-gradient(at 10% 29%, hsla(256, 96%, 67%, 1) 0px, transparent 50%),
+    radial-gradient(at 10% 19%, hsl(236, 94%, 56%) 0px, transparent 50%),
     radial-gradient(at 97% 96%, hsla(38, 60%, 74%, 1) 0px, transparent 50%),
     radial-gradient(at 33% 50%, hsla(222, 67%, 73%, 1) 0px, transparent 50%),
-    radial-gradient(at 79% 53%, hsla(343, 68%, 79%, 1) 0px, transparent 50%);
+    radial-gradient(at 79% 53%, hsla(343, 68%, 79%, 1) 0px, transparent 50%),
+    radial-gradient(at 1% 90%, rgb(210, 151, 250) 0px, transparent 50%);
+    
   position: absolute;
   content: "";
   width: 100%;
   height: 100%;
-  filter: blur(100px) saturate(150%);
-  top: 80px;
-  opacity: 0.15;
+  filter: blur(0px) saturate(150%);
+  top: 0px;
+  opacity: 0.4;
 }
 
 @media screen and (max-width: 640px) {
@@ -78,7 +79,7 @@
 }
 
 .black_btn {
-  @apply rounded-full border border-black bg-black py-1.5 px-5 text-white transition-all hover:bg-white hover:text-black text-center text-sm font-inter flex items-center justify-center;
+  @apply rounded-full border border-black bg-black py-1.5 px-5 text-white transition-all hover:bg-transparent hover:text-black text-center text-sm font-inter flex items-center justify-center;
 }
 
 .outline_btn {
@@ -97,8 +98,16 @@
   @apply bg-gradient-to-r from-green-400 to-green-500 bg-clip-text text-transparent;
 }
 
+.yellow_gradient {
+  @apply bg-gradient-to-r from-yellow-500 via-green-400 to-yellow-500 bg-clip-text text-transparent;
+}
+
 .blue_gradient {
-  @apply bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent;
+  @apply bg-gradient-to-r from-blue-700 to-blue-500 bg-clip-text text-transparent;
+}
+
+.purple_gradient {
+  @apply bg-gradient-to-r from-blue-500 via-purple-400 to-blue-500 bg-clip-text text-transparent;
 }
 
 .desc {
@@ -106,7 +115,7 @@
 }
 
 .search_input {
-  @apply block w-full rounded-md border border-gray-200 bg-white py-2.5 font-satoshi pl-5 pr-12 text-sm shadow-lg font-medium focus:border-black focus:outline-none focus:ring-0;
+  @apply block w-full rounded-md border border-gray-200 bg-white py-2.5 font-satoshi pl-5 pr-12 text-sm shadow-lg font-medium hover:bg-white/80 focus:outline-none focus:ring-0;
 }
 
 .copy_btn {
@@ -141,7 +150,7 @@
 }
 
 .dropdown {
-  @apply absolute right-0 top-full mt-3 w-full p-5 rounded-lg bg-white min-w-[210px] flex flex-col gap-2 justify-end items-end;
+  @apply absolute right-0 top-full mt-3 w-full p-5 rounded-lg border border-gray-300 bg-white/20 min-w-[210px] flex flex-col gap-2 justify-end items-end backdrop-blur-lg backdrop-filter;
 }
 
 .dropdown_link {
@@ -151,6 +160,7 @@
 /* PromptCard Component */
 .prompt_card {
   @apply flex-1 break-inside-avoid rounded-lg border border-gray-300 bg-white/20 bg-clip-padding p-6 pb-4 backdrop-blur-lg backdrop-filter md:w-[360px] w-full h-fit;
+  animation: fade-in 0.7s;
 }
 
 .flex-center {
@@ -158,7 +168,7 @@
 }
 
 .flex-start {
-  @apply flex justify-start items-start;
+  @apply flex justify-start items-center;
 }
 
 .flex-end {
@@ -167,4 +177,16 @@
 
 .flex-between {
   @apply flex justify-between items-center;
+}
+
+/* animation */
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px) scale(1);
+  }
 }

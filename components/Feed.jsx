@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 
 import PromptCard from './PromptCard';
-import { set } from 'mongoose';
+
 const PromptCardList = ({data, handleTagClick}) => {
   return (
     <div className="mt-16 prompt_layout">
@@ -69,7 +69,7 @@ const Feed = () => {
 
   return (
     <section className="feed">
-      <form action="" className="relative w-full flex-center">
+      <form className="relative w-full flex-center">
         <input 
           type="text" 
           placeholder="Search for a tag or a username"

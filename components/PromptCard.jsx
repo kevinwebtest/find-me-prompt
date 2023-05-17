@@ -30,7 +30,6 @@ const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
     }
     
   }
-  console.log(post,session)
   
   return (
     <div className="prompt_card">
@@ -84,13 +83,13 @@ const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
       {session?.user.id === post.creator._id && pathName === '/profile' && (
         <div className="mt-5 flex-center gap-4 pt-3">
           <p 
-            className="font-inter text-sm green_gradient cursor-pointer"
+            className="font-inter font-bold text-sm green_gradient cursor-pointer"
             onClick={handleEdit}  
           >
             Edit
           </p>
           <p 
-            className="font-inter text-sm orange_gradient cursor-pointer"
+            className="font-inter font-bold text-sm orange_gradient cursor-pointer"
             onClick={handleDelete}
           >
             Delete
